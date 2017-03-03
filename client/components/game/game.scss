@@ -1,0 +1,64 @@
+game
+{
+  .game {
+    position:relative;
+    width:100%;
+
+    .title {
+      left:0; right:95px; top:0;
+    }
+    .title.right { text-align:right;}
+
+    .subtitle {
+      position: relative;; width: 50%; float: left;
+    }
+    .subtitle.yay {
+      float: right;
+      text-align:right;
+    }
+
+    .graphic
+    {
+      left:0; top: 55px; min-height:50px; background:#ececec; margin: 0px 0px;
+      .nay{
+        position:absolute; left:0; height:50px; background:#8a2a36; border:1px solid #f00609;
+            background-image:-moz-linear-gradient(to right, #8a2a36 0%, #fb0102 100%);
+            background-image:linear-gradient(to right, #8a2a36 0%, #fb0102 100%);
+            background-image:-webkit-linear-gradient(to right, #8a2a36 0%, #fb0102 100%);
+            background-image:-o-linear-gradient(to right, #8a2a36 0%, #fb0102 100%);
+            background-image:-ms-linear-gradient(to right, #8a2a36 0%, #fb0102 100%);
+            background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(0%,#8a2a36),color-stop(100%,#fb0102));
+          }
+      .yay { position:absolute; left:0; height:50px; background:#07689f; border:1px solid #3392c0;
+              background-image:-moz-linear-gradient(to right, #07689f 0%, #01b8fe 100%);
+              background-image:linear-gradient(to right, #07689f 0%, #01b8fe 100%);
+              background-image:-webkit-linear-gradient(to right, #07689f 0%, #01b8fe 100%);
+              background-image:-o-linear-gradient(to right, #07689f 0%, #01b8fe 100%);
+              background-image:-ms-linear-gradient(to right, #07689f 0%, #01b8fe 100%);
+              background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(0%,#07689f),color-stop(100%,#01b8fe ));}
+    }
+
+    button {
+      font-size: 2em;
+      font-weight: bold;
+    }
+  }
+}
+.yaysidebutton {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, mix(#07689f, #01b8fe), #07689f);
+  &.active {
+    -webkit-box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+    -moz-box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+    box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+  }
+}
+.naysidebutton {
+  //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  @include button-variant(white, mix(#8a2a36 , #fb0102), #8a2a36);
+  &.active {
+    -webkit-box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+    -moz-box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+    box-shadow: inset 0px 0px 3px 3px rgba(255,255,255,0.25);
+  }
+}

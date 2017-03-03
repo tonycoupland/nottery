@@ -1,0 +1,49 @@
+<div class="ngdialog-message">
+  <div>
+		<h2>Confirm bet</h2>
+    <form>
+      <div class="form-group row">
+        <label class="col-sm-3 form-control-label">Draw</label>
+        <div class="col-sm-9">
+          <p class="form-control-static">{{ticketDetails.game.title}}</p>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputStake" class="col-sm-3 form-control-label">Stake</label>
+        <div class="col-sm-9">
+          <div class="input-group">
+            <span class="input-group-addon">£</span>
+            <input type="number" class="form-control" id="inputStake" placeholder="Stake" ng-model="ticketDetails.stake">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputSide" class="col-sm-3 form-control-label">Side</label>
+        <div class="col-sm-9">
+          <div class="btn-group-justified" data-toggle="buttons">
+            <label class="btn btn-large naysidebutton" ng-class="{active: ticketDetails.side=='nay'};" ng-click="ticketDetails.side='nay'" >
+              <input type="radio"ng-model="ticketDetails.side" autocomplete="off" value="nay" > Nay
+            </label>
+            <label class="btn btn-large yaysidebutton" ng-class="{active: ticketDetails.side=='yay'};" ng-click="ticketDetails.side='yay'">
+              <input type="radio" ng-model="ticketDetails.side" autocomplete="off" value="yay" > Yay
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12">
+          <p class="form-control-static">Estimated return: {{ticketDetails.stake * (ticketDetails.side=='yay'?ticketDetails.game.yayReturn:ticketDetails.game.nayReturn) | currency:'£'}}*</p>
+          <p class="form-control-static">*Actual return will be calculated once betting has ended and may increase or decrease from the estimate.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 col-md-offset-8 text-center col-xs-12">
+          <button class="btn btn-block btn-large btn-success" autofocus ng-click="closeThisDialog('confirm')">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

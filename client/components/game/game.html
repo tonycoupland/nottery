@@ -1,0 +1,32 @@
+<div class="container game">
+  <h3 class="title">{{vm.game.title}}</h3>
+  <div ng-show="{{vm.game.state == 'active'}}" >
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p class="lead">Do you think someone will win the jackpot?</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1 text-center col-xs-6">
+        <form class="form" name="form" ng-submit="vm.placeBet('nay')" novalidate>
+          <button class="btn naysidebutton btn-lg btn-block" type="submit" >Nay!</button>
+        </form>
+      </div>
+      <div class="col-md-4 col-md-offset-2 text-center col-xs-6">
+        <form class="form" name="form" ng-submit="vm.placeBet('yay')" novalidate>
+          <button class="btn yaysidebutton btn-lg btn-block" type="submit" >Yay!</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="graphic">
+    <div class="nay" style="width:{{vm.game.yayReturn * 100 / (vm.game.nayReturn+vm.game.yayReturn)}}%;">&nbsp;</div>
+    <div class="yay" style="left:{{vm.game.yayReturn * 100/ (vm.game.nayReturn+vm.game.yayReturn)}}%;width:{{vm.game.nayReturn* 100 / (vm.game.nayReturn+vm.game.yayReturn)}}%;">&nbsp;</div>
+  </div>
+  <h4 class="subtitle nay" ng-show="vm.game.result === '' || vm.game.result == 'nay'">Nay: £10 bet estimated return {{vm.game.nayReturn*10 | currency:'£'}}</h4>
+  <h4 class="subtitle yay" ng-show="vm.game.result === '' || vm.game.result == 'yay'">Yay: £10 bet estimated return {{vm.game.yayReturn*10 | currency:'£'}}</h4>
+
+
+</div>

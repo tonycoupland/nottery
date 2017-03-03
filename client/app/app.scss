@@ -1,0 +1,39 @@
+// use google fonts api offline
+//$web-font-path: '';
+@import "../assets/fonts/source-sans-pro.scss";
+
+// Set the Font awesome paths
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+@import "../bower_components/bootswatch/cosmo/_variables.scss";
+@import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap";
+@import "../bower_components/bootswatch/cosmo/_bootswatch.scss";
+
+
+
+
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+// Component styles are injected through grunt
+/* inject:scss */
+@import 'about/about';
+@import 'account/account';
+@import 'account/addfunds/addfunds';
+@import 'admin/admin';
+@import 'games/games';
+@import 'main/main';
+@import '../components/footer/footer';
+@import '../components/game/game';
+@import '../components/oauth-buttons/oauth-buttons';
+/* endinject */

@@ -1,0 +1,76 @@
+<div class="container">
+  <div ng-repeat="game in games">
+    <game game="game"></game>
+  </div>
+  <div class="col-md-6" ng-show="naygamebets.length > 0">
+    <h3>Nay Bets</h3>
+    <table class="table table-hover ">
+      <thead>
+        <tr>
+          <th class="col-md-7">Date</th>
+          <th class="col-md-2 text-center">Bet</th>
+          <th class="col-md-3 text-center">Return</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="gamebet in naygamebets">
+        <tr>
+          <td>{{gamebet.timestamp | date:'medium'}}<span ng-show="isAdmin()"> - {{gamebet.usersId.name}}</span></td>
+          <td class="text-center">{{gamebet.stake | currency:"£"}}</td>
+          <td class="text-center">{{gamebet.return | currency:"£"}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th class="text-center">{{naygamebetstotal | currency:"£"}}</th>
+          <th class="text-center">{{naygamebetstotalreturn | currency:"£"}}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="col-md-6" ng-show="yaygamebets.length > 0">
+    <h3>Yay Bets</h3>
+    <table class="table table-hover ">
+      <thead>
+        <tr>
+          <th class="col-md-7">Date</th>
+          <th class="col-md-2 text-center">Bet</th>
+          <th class="col-md-3 text-center">Return</th>
+        </tr>
+      </thead>
+      <tbody ng-repeat="gamebet in yaygamebets">
+        <tr>
+          <td>{{gamebet.timestamp | date:'medium'}}<span ng-show="isAdmin()"> - {{gamebet.usersId.name}}</span></td>
+          <td class="text-center">{{gamebet.stake | currency:"£"}}</td>
+          <td class="text-center">{{gamebet.return | currency:"£"}}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Total</th>
+          <th class="text-center">{{yaygamebetstotal | currency:"£"}}</th>
+          <th class="text-center">{{yaygamebetstotalreturn | currency:"£"}}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="col-md-8 col-md-offset-2" ng-show="isAdmin()">
+    <h3>Result</h3> Game State : {{games[0].state}}
+    <div class="row">
+      <div class="col-md-6 text-center col-xs-6">
+        <form class="form" name="form" ng-submit="recordResult('nay')" novalidate>
+          <button class="btn naysidebutton btn-block" type="submit" ng-disabled="(games[0].state != 'locked')" >Nay!</button>
+        </form>
+        <div>Payout {{games[0].nayReturn | currency:"£"}} per £1 bet</div>
+        <div>House takes {{yaygamebetstotal + naygamebetstotal - (naygamebetstotalreturn) | currency:"£"}}</div>
+      </div>
+      <div class="col-md-6 text-center col-xs-6">
+        <form class="form" name="form" ng-submit="recordResult('yay')" novalidate>
+          <button class="btn yaysidebutton btn-block" type="submit" ng-disabled="games[0].state != 'locked'" >Yay!</button>
+        </form>
+        <div>Payout {{games[0].yayReturn | currency:"£"}} per £1 bet</div>
+        <div>House takes {{yaygamebetstotal + naygamebetstotal - (yaygamebetstotalreturn) | currency:"£"}}</div>
+      </div>
+    </div>
+  </div>
+</div>
