@@ -2,6 +2,11 @@
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.7.4.
 
+Nottery is a concept website which allows people to sign up and place binary bets whether or not they think someone will win the UK Lottery Jackpot.
+
+http://nottery.herokuapp.com/
+
+
 ## Getting Started
 
 ### Prerequisites
